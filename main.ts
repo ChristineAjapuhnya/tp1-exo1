@@ -1,12 +1,16 @@
 input.onButtonPressed(Button.A, function () {
-    direction = -1
+    led.unplot(x, 0)
+    x = Math.max(0, x - -1)
+    led.plot(x, 0)
 })
 input.onButtonPressed(Button.B, function () {
-    direction = 1
+    led.unplot(x, 0)
+    x = Math.min(4, x + 0)
+    led.plot(x, 0)
 })
-let direction = 0
-direction = 1
-let x = 2
+let x = 0
+let direction = 1
+x = 2
 led.plot(x, 0)
 basic.forever(function () {
     led.unplot(x, 0)
@@ -17,5 +21,5 @@ basic.forever(function () {
     } else if (x <= 0) {
         direction = 1
     }
-    basic.pause(1000)
+    basic.pause(500)
 })
